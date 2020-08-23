@@ -8,7 +8,7 @@ namespace TwitCasting.Net.Downloader.Internal
 {
     internal static class Converter
     {
-        public static async Task Convert(DownloaderOptions options)
+        public static async Task Convert(Options options)
         {
             var mediaInfo = await GetMediaInfo(options.TemporaryFile);
 
@@ -39,20 +39,3 @@ namespace TwitCasting.Net.Downloader.Internal
         }
     }
 }
-
-//var process = new Process
-//{
-//StartInfo =
-//{
-//    FileName = "ffmpeg.exe",
-//    Arguments =
-//        $"-i {options.TemporaryFile} -codec copy -y {options.FileName}",
-//    UseShellExecute = false,
-//    CreateNoWindow = true
-//}
-//};
-
-//process.Start();
-//process.WaitForExit();
-
-//return Task.CompletedTask;

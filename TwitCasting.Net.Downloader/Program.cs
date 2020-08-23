@@ -8,18 +8,18 @@ namespace TwitCasting.Net.Downloader
 {
     public class Program
     {
+        private static Recorder Recorder { get; set; }
+
         private static Downloader Downloader { get; set; }
 
-        private static DownloaderOptions Options { get; set; }
+        private static Options Options { get; set; }
 
         private static volatile bool _exitRequested = false;
 
         public static async Task Main(string[] args)
         {
-            Options = Parse<DownloaderOptions>(args);
+            Options = Parse<Options>(args);
             Options.FileName = Path.GetFileNameWithoutExtension(Options.FileName); // Remove extension if any
-            Options.TemporaryFile = $"{Path.GetFileNameWithoutExtension(Options.FileName)}-tmp.ts";
-            Downloader = new Downloader(Options);
 
             Console.CancelKeyPress += (sender, eventArgs) =>
             {
@@ -27,22 +27,45 @@ namespace TwitCasting.Net.Downloader
                 _exitRequested = true;
             };
 
-            try
+            if (!Options.IsRecording)
             {
-                await Downloader.DownloadStreamAsync(Options.TwitCaster).ConfigureAwait(false);
+                if (string.IsNullOrWhiteSpace(Options.LiveId) || string.IsNullOrWhiteSpace(Options.TwitCaster))
+                    return;
 
-                while (Downloader.IsDownloading && !_exitRequested) { } // ...?
+                Downloader = new Downloader(Options);
 
-                await Downloader.DisconnectAsync().ConfigureAwait(false);
-                await Converter.Convert(Options);
+                try
+                {
+                }
+                catch (TaskCanceledException)
+                {
+                }
+                catch (Exception e)
+                {
+                    Logger.DownloaderLog("Unknown error, please retry " + e.Message);
+                }
             }
-            catch (TaskCanceledException)
+            else
             {
-                Logger.DownloaderLog($"{Options.TwitCaster} is not streaming");
-            }
-            catch (Exception e)
-            {
-                Logger.DownloaderLog("Unknown error, please retry " + e.Message);
+                Options.TemporaryFile = $"{Path.GetFileNameWithoutExtension(Options.FileName)}-tmp.ts";
+
+                try
+                {
+                    await Recorder.RecordAsync().ConfigureAwait(false);
+
+                    while (Recorder.IsRecording && !_exitRequested) { } // ...?
+
+                    await Recorder.DisconnectAsync().ConfigureAwait(false);
+                    await Converter.Convert(Options);
+                }
+                catch (TaskCanceledException)
+                {
+                    Logger.DownloaderLog($"{Options.TwitCaster} is not streaming");
+                }
+                catch (Exception e)
+                {
+                    Logger.DownloaderLog("Unknown error, please retry " + e.Message);
+                }
             }
         }
 
