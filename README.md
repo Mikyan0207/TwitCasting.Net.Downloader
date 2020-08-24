@@ -77,21 +77,21 @@ Replace {user} with the TwitCaster's username.<br>
 Replace {id} with the id of the video you want to download.
 
 ```sh
-./tc-downloader -u {user} -l {id}
+> ./tc-downloader -u {user} -l {id}
 ```
 
 
 - Record a live in real-time
 
 ```sh
-./tc-downloader -u {user}
+> ./tc-downloader -u {user}
 ```
 
 
 - Specify output file
 
 ```sh
-./tc-downloader -u {user} -l {id} -o {filename}
+> ./tc-downloader -u {user} -l {id} -o {filename}
 ```
 
 <!-- ROADMAP -->
