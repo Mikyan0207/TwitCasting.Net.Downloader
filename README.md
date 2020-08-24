@@ -45,7 +45,9 @@
 <!-- ABOUT THE PROJECT -->
 ## About The Project
 
-
+TwitCasting.Net.Downloader is a tool to download or record any TwitCasting livestream.<br>
+TwitCasting.Net.Downloader does not use the official TwitCasting API as it does not provide any tools to record or download a livestream.<br>
+If you want to interact with the TwitCasting API you can use TwitCasting.Net.
 
 
 ### Built With
@@ -59,7 +61,7 @@
 
 ### Prerequisites
 
-Fmpeg is required to run TwitCasting.Net.Downloader. You can download it from the official website or use the executable available with TwitCasting.Net.Downloader.
+FFmpeg is required to run TwitCasting.Net.Downloader. You can download it from the official website or use the executable available with TwitCasting.Net.Downloader.
 
 ### Installation
  
@@ -69,7 +71,7 @@ Fmpeg is required to run TwitCasting.Net.Downloader. You can download it from th
 
 - Download a live
 
-Replace {user} with the TwitCaster's username.
+Replace {user} with the TwitCaster's username.<br>
 Replace {id} with the id of the video you want to download.
 
 ```sh
@@ -113,7 +115,7 @@ Any contributions you make are **greatly appreciated**.
 <!-- LICENSE -->
 ## License
 
-Distributed under the [![MIT License]][license-url]. See `LICENSE` for more information.
+Distributed under the [MIT License][license-url]. See `LICENSE` for more information.
 
 
 
