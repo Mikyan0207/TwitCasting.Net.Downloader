@@ -73,8 +73,8 @@ FFmpeg is required to run TwitCasting.Net.Downloader. You can download it from t
 
 - Download a live
 
-Replace {user} with the TwitCaster's username.<br>
-Replace {id} with the id of the video you want to download.
+Replace `{user}` with the TwitCaster's username.<br>
+Replace `{id}` with the id of the video you want to download.
 
 ```sh
 > ./tc-downloader -u {user} -l {id}
