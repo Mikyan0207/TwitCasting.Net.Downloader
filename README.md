@@ -59,9 +59,18 @@ If you want to interact with the TwitCasting API you can use [TwitCasting.Net](h
 <!-- GETTING STARTED -->
 ## Getting Started
 
+⚠️ TwitCasting.Net.Downloader has not been tested on Linux
+
 ### Prerequisites
 
+#### Windows 10
+
 FFmpeg is required to run TwitCasting.Net.Downloader. You can download it from the official website or use the executable available with TwitCasting.Net.Downloader.
+
+#### Linux (Ubuntu)
+```sh
+> sudo apt install ffmpeg
+```
 
 ### Installation
  
@@ -134,7 +143,7 @@ Project Link: [https://github.com/mikyan0207/TwitCasting.Net.Downloader](https:/
 ## Acknowledgements
 
 * [CommandLineParser](https://github.com/commandlineparser/commandline)
-* [DSharpPlus (AsyncEvents)](https://github.com/DSharpPlus/DSharpPlus)
+* [DSharpPlus (WebSocketClient & AsyncEvents)](https://github.com/DSharpPlus/DSharpPlus)
 * [FFmpeg](https://ffmpeg.org/)
 * [Xabe.FFmpeg](https://github.com/tomaszzmuda/Xabe.FFmpeg)
 
