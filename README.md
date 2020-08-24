@@ -84,7 +84,7 @@ Replace `{id}` with the id of the video you want to download.
 - Record a live in real-time
 
 ```sh
-> ./tc-downloader -u {user}
+> ./tc-downloader -r -u {user}
 ```
 
 
@@ -150,5 +150,5 @@ Project Link: [https://github.com/mikyan0207/TwitCasting.Net.Downloader](https:/
 [issues-shield]: https://img.shields.io/github/issues/mikyan0207/TwitCasting.Net.Downloader.svg?style=flat-square
 [issues-url]: https://github.com/mikyan0207/TwitCasting.Net.Downloader/issues
 [license-shield]: https://img.shields.io/github/license/mikyan0207/TwitCasting.Net.Downloader.svg?style=flat-square
-[license-url]: https://github.com/mikyan0207/TwitCasting.Net.Downloader/blob/master/LICENSE.txt
+[license-url]: https://github.com/mikyan0207/TwitCasting.Net.Downloader/blob/master/LICENSE
 [product-screenshot]: images/logo.png
