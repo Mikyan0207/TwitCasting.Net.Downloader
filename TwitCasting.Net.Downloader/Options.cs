@@ -4,7 +4,7 @@ namespace TwitCasting.Net.Downloader
 {
     public class Options
     {
-        [Option('o', "output", Default = "out.mp4")]
+        [Option('o', "output", Default = "out")]
         public string FileName { get; set; }
 
         public string TemporaryFile { get; set; }

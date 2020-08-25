@@ -1,6 +1,7 @@
 ﻿using CommandLine;
 using System;
 using System.IO;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using TwitCasting.Net.Downloader.Internal;
 
@@ -19,7 +20,7 @@ namespace TwitCasting.Net.Downloader
         public static async Task Main(string[] args)
         {
             Options = Parse<Options>(args);
-            Options.FileName = Path.GetFileNameWithoutExtension(Options.FileName); // Remove extension if any
+            Options.FileName = Path.GetFileNameWithoutExtension(Options.FileName);
 
             Console.CancelKeyPress += (sender, eventArgs) =>
             {
@@ -29,6 +30,17 @@ namespace TwitCasting.Net.Downloader
 
             if (!Options.IsRecording)
             {
+                var regex = new Regex("https:\\/\\/twitcasting\\.tv\\/(.*)\\/movie\\/([0-9]+)");
+                var arg = string.Join(" ", args);
+
+                if (regex.IsMatch(arg))
+                {
+                    var matches = regex.Match(arg);
+
+                    Options.TwitCaster = matches.Groups[1].Value;
+                    Options.LiveId = matches.Groups[2].Value;
+                }
+
                 if (string.IsNullOrWhiteSpace(Options.LiveId) || string.IsNullOrWhiteSpace(Options.TwitCaster))
                     return;
 
@@ -36,9 +48,11 @@ namespace TwitCasting.Net.Downloader
 
                 try
                 {
+                    await Downloader.DownloadAsync().ConfigureAwait(false);
                 }
                 catch (TaskCanceledException)
                 {
+                    Logger.DownloaderLog("Invalid URL.");
                 }
                 catch (Exception e)
                 {

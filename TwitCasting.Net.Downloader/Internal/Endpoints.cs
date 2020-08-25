@@ -6,6 +6,6 @@
 
         public static string StreamServer => DefaultUrl + "/streamserver.php";
 
-        public static string Download => "http://dl01.twitcasting.tv/{user}/download/{liveId}?dl=1";
+        public static string Live => "https://twitcasting.tv/{user}/movie/{liveId}";
     }
 }

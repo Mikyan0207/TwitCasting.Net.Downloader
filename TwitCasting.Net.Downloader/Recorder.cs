@@ -21,7 +21,7 @@ namespace TwitCasting.Net.Downloader
 
         public Recorder(Options options) : base(options)
         {
-            FileStream = new FileStream($"{Options.TemporaryFile}", FileMode.Append, FileAccess.Write);
+            FileStream = new FileStream($"{Options.TemporaryFile}.mp4", FileMode.Append, FileAccess.Write);
             WebSocketClient = WebSocketClient.CreateNew(new WebSocketOptions
             {
                 Headers = new Dictionary<string, string>
