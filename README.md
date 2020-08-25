@@ -59,18 +59,9 @@ If you want to interact with the TwitCasting API you can use [TwitCasting.Net](h
 <!-- GETTING STARTED -->
 ## Getting Started
 
-⚠️ TwitCasting.Net.Downloader has not been tested on Linux
-
 ### Prerequisites
 
-#### Windows 10
-
 FFmpeg is required to run TwitCasting.Net.Downloader. You can download it from the official website or use the executable available with TwitCasting.Net.Downloader.
-
-#### Linux (Ubuntu)
-```sh
-> sudo apt install ffmpeg
-```
 
 ### Installation
  
@@ -84,6 +75,11 @@ FFmpeg is required to run TwitCasting.Net.Downloader. You can download it from t
 
 Replace `{user}` with the TwitCaster's username.<br>
 Replace `{id}` with the id of the video you want to download.
+Replace `{url}` with the url of the video you want to download.
+
+```sh
+> ./tc-downloader {url}
+```
 
 ```sh
 > ./tc-downloader -u {user} -l {id}
@@ -100,7 +96,7 @@ Replace `{id}` with the id of the video you want to download.
 - Specify output file
 
 ```sh
-> ./tc-downloader -u {user} -l {id} -o {filename}
+> ./tc-downloader {url} -o {filename}
 ```
 
 <!-- ROADMAP -->
