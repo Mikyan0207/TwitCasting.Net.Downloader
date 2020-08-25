@@ -67,14 +67,14 @@ FFmpeg is required to run TwitCasting.Net.Downloader. You can download it from t
  
 1. [Go to release page](https://github.com/Mikyan0207/TwitCasting.Net.Downloader/releases)
 
-2. Download the version corresponding to your platform (Windows / Linux)
+2. Download the latest version.
 
 ### Usage
 
 - Download a live
 
 Replace `{user}` with the TwitCaster's username.<br>
-Replace `{id}` with the id of the video you want to download.
+Replace `{id}` with the id of the video you want to download.<br>
 Replace `{url}` with the url of the video you want to download.
 
 ```sh
