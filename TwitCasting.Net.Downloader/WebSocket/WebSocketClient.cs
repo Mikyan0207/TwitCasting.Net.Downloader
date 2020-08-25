@@ -5,6 +5,7 @@ using System.Net.WebSockets;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
+using TwitCasting.Net.Downloader.Common;
 using TwitCasting.Net.Downloader.EventArgs;
 
 namespace TwitCasting.Net.Downloader.WebSocket

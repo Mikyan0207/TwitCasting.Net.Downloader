@@ -1,7 +1,7 @@
 ﻿using System.Threading.Tasks;
 using TwitCasting.Net.Downloader.EventArgs;
 
-namespace TwitCasting.Net.Downloader
+namespace TwitCasting.Net.Downloader.Common
 {
     public delegate Task AsyncEventHandler();
 

@@ -1,6 +1,6 @@
 ﻿using CommandLine;
 
-namespace TwitCasting.Net.Downloader
+namespace TwitCasting.Net.Downloader.Common
 {
     public class Options
     {

@@ -3,6 +3,7 @@ using Newtonsoft.Json;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using TwitCasting.Net.Downloader.Common;
 using TwitCasting.Net.Downloader.Internal;
 using TwitCasting.Net.Downloader.Models;
 using Uri = System.Uri;

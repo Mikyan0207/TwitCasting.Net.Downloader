@@ -3,6 +3,7 @@ using System;
 using System.IO;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
+using TwitCasting.Net.Downloader.Common;
 using TwitCasting.Net.Downloader.Internal;
 
 namespace TwitCasting.Net.Downloader

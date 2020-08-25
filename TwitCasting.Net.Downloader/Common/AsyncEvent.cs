@@ -4,7 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using TwitCasting.Net.Downloader.EventArgs;
 
-namespace TwitCasting.Net.Downloader
+namespace TwitCasting.Net.Downloader.Common
 {
     public sealed class AsyncEvent
     {

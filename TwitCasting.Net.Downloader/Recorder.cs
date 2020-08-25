@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.IO;
 using System.Threading.Tasks;
+using TwitCasting.Net.Downloader.Common;
 using TwitCasting.Net.Downloader.EventArgs;
 using TwitCasting.Net.Downloader.Internal;
 using TwitCasting.Net.Downloader.Models;
