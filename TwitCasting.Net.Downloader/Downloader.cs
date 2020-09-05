@@ -28,7 +28,7 @@ namespace TwitCasting.Net.Downloader
                 throw new TaskCanceledException("Invalid URL.");
 
             var html = Parser.ParseDocument(body);
-            var movieData = html.QuerySelector("video").GetAttribute("data-movie-playlist");
+            var movieData = html.QuerySelector("video")?.GetAttribute("data-movie-playlist");
 
             if (string.IsNullOrWhiteSpace(movieData))
                 throw new TaskCanceledException("Invalid URL.");
