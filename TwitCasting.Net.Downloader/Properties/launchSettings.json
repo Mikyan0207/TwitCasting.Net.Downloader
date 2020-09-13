@@ -1,0 +1,8 @@
+{
+  "profiles": {
+    "TwitCasting.Net.Downloader": {
+      "commandName": "Project",
+      "commandLineArgs": "-r -u rrreol"
+    }
+  }
+}

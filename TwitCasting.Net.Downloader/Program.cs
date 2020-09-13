@@ -64,6 +64,7 @@ namespace TwitCasting.Net.Downloader
             {
                 Options.TemporaryFile = $"{Path.GetFileNameWithoutExtension(Options.FileName)}-tmp.ts";
 
+                Recorder = new Recorder(Options);
                 try
                 {
                     await Recorder.RecordAsync().ConfigureAwait(false);
