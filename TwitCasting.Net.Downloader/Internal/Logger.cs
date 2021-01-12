@@ -6,12 +6,11 @@ namespace TwitCasting.Net.Downloader.Internal
 {
     public static class Logger
     {
-        private static readonly Formatter[] Formatters = new[]
-        {
+        private static readonly Formatter[] Formatters = {
             new Formatter("[Downloader]", Color.Crimson),
+            new Formatter("[Recorder]", Color.Crimson),
             new Formatter("[WebSocket]", Color.Magenta),
-            new Formatter("[Converter]", Color.Green),
-            new Formatter("Messages", Color.DarkCyan),
+            new Formatter("[Converter]", Color.Green)
         };
 
         public static void Log(string message)
@@ -25,7 +24,7 @@ namespace TwitCasting.Net.Downloader.Internal
 
         public static void WebSocketLog(string message)
         {
-            Console.WriteFormatted("{1} ", Color.White, Formatters);
+            Console.WriteFormatted("{2} ", Color.White, Formatters);
             Log(message);
         }
 
@@ -37,7 +36,7 @@ namespace TwitCasting.Net.Downloader.Internal
 
         public static void ConverterLog(string message)
         {
-            Console.WriteFormatted("{2} ", Color.White, Formatters);
+            Console.WriteFormatted("{3} ", Color.White, Formatters);
             Log(message);
         }
     }

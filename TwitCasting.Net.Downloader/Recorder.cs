@@ -16,7 +16,7 @@ namespace TwitCasting.Net.Downloader
 
         private static FileStream FileStream { get; set; }
 
-        private ulong MessageCount { get; set; }
+        private long Bytes { get; set; }
 
         public bool IsRecording { get; private set; }
 
@@ -88,7 +88,7 @@ namespace TwitCasting.Net.Downloader
         private Task WebSocketClient_Disconnected(WebSocketCloseEventArgs e)
         {
             WebSocketClient.RemoveDefaultHeader("Host");
-            Logger.WebSocketLog($"Disconnected!");
+            Logger.WebSocketLog("Disconnected!");
             IsRecording = false;
 
             return Task.CompletedTask;
@@ -98,11 +98,12 @@ namespace TwitCasting.Net.Downloader
         {
             switch (e)
             {
-                case WebSocketTextMessageEventArgs tme:
+                case WebSocketTextMessageEventArgs _:
                     break;
 
                 case WebSocketBinaryMessageEventArgs bme:
-                    Logger.UpdateLine("{0} " + $"{MessageCount++}" + " {3}");
+	                Bytes += bme.Message.Length;
+                    Logger.UpdateLine("{1} " + $"{BytesToString(Bytes)}   ");
                     FileStream.Write(bme.Message);
                     break;
             }
@@ -116,11 +117,22 @@ namespace TwitCasting.Net.Downloader
             while (ex is AggregateException ae)
                 ex = ae.InnerException;
 
-            Logger.WebSocketLog($"Disconnected! (Canceled/Stream ended)");
+            Logger.WebSocketLog("Disconnected! (Canceled/Stream ended)");
             Logger.WebSocketLog(ex?.Message);
             IsRecording = false;
 
             return Task.CompletedTask;
+        }
+
+        private static string BytesToString(long byteCount)
+        {
+	        string[] suf = { "B", "KB", "MB", "GB", "TB", "PB", "EB" };
+	        if (byteCount == 0)
+		        return "0" + suf[0];
+	        var bytes = Math.Abs(byteCount);
+	        var place = Convert.ToInt32(Math.Floor(Math.Log(bytes, 1024)));
+	        var num = Math.Round(bytes / Math.Pow(1024, place), 1);
+	        return (Math.Sign(byteCount) * num) + suf[place];
         }
     }
 }
